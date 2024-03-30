@@ -9,6 +9,7 @@
     "node": "20.x"
   },
   "scripts": {
+    "deploy": "flyctl launch",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -31,6 +32,7 @@
     "seedrandom": "^3.0.5"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.4",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",
