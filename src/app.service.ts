@@ -10,17 +10,16 @@ export class AppService {
     const indexes: number[] = generateRandomIndexes(seed, abilities.length);
     const dailyAbilities = indexes.map((index) => abilities[index]);
     return btoa(btoa(btoa(JSON.stringify(dailyAbilities).toLowerCase())));
+    // return JSON.stringify(dailyAbilities).toLowerCase();
   }
 }
 
 const generateRandomIndexes = (seed, length): number[] => {
   const rng = seedrandom(seed);
   const indexes = new Set<number>();
-
   while (indexes.size < 3) {
-    const index = Math.floor(rng() * length);
+    const index = Math.floor((rng() * 10000000) % length);
     indexes.add(index);
   }
-
   return Array.from(indexes);
 };
