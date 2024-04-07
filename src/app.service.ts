@@ -6,6 +6,10 @@ const seedrandom = require('seedrandom');
 export class AppService {
   getDaily(): string {
     const currentDate = new Date();
+    //use server time
+    currentDate.setMinutes(
+      currentDate.getMinutes() - currentDate.getTimezoneOffset(),
+    );
     const seed = currentDate.toISOString().split('T')[0]; // Use the date portion as the seed
     const indexes: number[] = generateRandomIndexes(seed, abilities.length);
     const dailyAbilities = indexes.map((index) => abilities[index]);
