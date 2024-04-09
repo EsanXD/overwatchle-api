@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -11,7 +11,7 @@ export class AppController {
   }
 
   @Get('daily')
-  getDaily(): string {
-    return this.appService.getDaily();
+  getDaily(@Query('param1') date: string): string {
+    return this.appService.getDaily(date);
   }
 }

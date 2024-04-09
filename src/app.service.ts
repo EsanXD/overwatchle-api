@@ -5,11 +5,10 @@ const { DateTime } = require('luxon');
 
 @Injectable()
 export class AppService {
-  getDaily(): string {
-    const now = DateTime.local().setZone('America/New_York');
-    console.log(now.toISO());
-    const seed = now.toFormat('dd/MM/yyyy'); // Use the date portion as the seed
-    const indexes: number[] = generateRandomIndexes(seed, abilities.length);
+  getDaily(date: string): string {
+    // seed will be date in format 'dd/mm/yyyy'
+    console.log(date);
+    const indexes: number[] = generateRandomIndexes(date, abilities.length);
     const dailyAbilities = indexes.map((index) => abilities[index]);
     return btoa(btoa(btoa(JSON.stringify(dailyAbilities).toLowerCase())));
     // return JSON.stringify(dailyAbilities).toLowerCase();
