@@ -1,16 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { abilities } from './abilities';
 const seedrandom = require('seedrandom');
+const { DateTime } = require('luxon');
 
 @Injectable()
 export class AppService {
   getDaily(): string {
-    const currentDate = new Date();
-    //use server time
-    currentDate.setMinutes(
-      currentDate.getMinutes() - currentDate.getTimezoneOffset(),
-    );
-    const seed = currentDate.toISOString().split('T')[0]; // Use the date portion as the seed
+    const now = DateTime.local().setZone('America/New_York');
+    console.log(now.toISO());
+    const seed = now.toFormat('dd/MM/yyyy'); // Use the date portion as the seed
     const indexes: number[] = generateRandomIndexes(seed, abilities.length);
     const dailyAbilities = indexes.map((index) => abilities[index]);
     return btoa(btoa(btoa(JSON.stringify(dailyAbilities).toLowerCase())));
