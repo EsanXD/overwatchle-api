@@ -11,7 +11,7 @@ export class AppController {
   }
 
   @Get('daily')
-  getDaily(@Query('param1') date: string): string {
+  getDaily(@Query('date') date: string): string {
     return this.appService.getDaily(date);
   }
 }
