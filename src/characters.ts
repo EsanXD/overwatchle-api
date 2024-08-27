@@ -340,6 +340,16 @@ export const characters = [
     img: 'https://d15f34w2p8l1cc.cloudfront.net/overwatch/5ea986038f9d307bd4613d5e6f2c4c8e7f15f30ceeeabbdd7a06637a38f17e1f.png',
   },
   {
+    name: "juno",
+    gender: "female",
+    role: "support",
+    race: "human",
+    org: "project red promise",
+    projectiletype: "hitscan",
+    releaseyear: 2024,
+    img: "https://d15f34w2p8l1cc.cloudfront.net/overwatch/585b2d60cbd3c271b6ad5ad0922537af0c6836fab6c89cb9979077f7bb0832b5.png",
+  },
+  {
     name: 'kiriko',
     gender: 'female',
     role: 'support',
